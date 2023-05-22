@@ -71,8 +71,8 @@ Thread: Started thread
 Exception in thread Thread-1 (my_thread_routine):
 Traceback (most recent call last):
   File "C:\Users\zachy\PycharmProjects\StreamFilter\setup.py", line 93, in my_thread_routine
-    raise Exception("Thread: I raised an exception, but that's not going to terminate the main thread.")
-Exception: Thread: I raised an exception, but that's not going to terminate the main thread.
+    raise Exception("Thread: I raised an exception, which will terminate the main thread and produce an exit code of 1.")
+Exception: Thread: I raised an exception, which will terminate the main thread and produce an exit code of 1.
 
 Process finished with exit code 1
 ```
@@ -81,7 +81,7 @@ It can also be used as a decorator:
 @terminate_on_fatal_exception
 def my_thread_routine():
   print("Thread: Started thread")
-  raise Exception("Thread: I raised an exception, but that's not going to terminate the main thread.")
+  raise Exception("Thread: I raised an exception, which will terminate the main thread and produce an exit code of 1.")
 
 Make sure you put it inside the thread - for example, this won't work:
 
