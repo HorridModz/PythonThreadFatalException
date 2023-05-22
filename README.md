@@ -78,10 +78,13 @@ Process finished with exit code 1
 ```
 
 It can also be used as a decorator:
+
+```py
 @terminate_on_fatal_exception
 def my_thread_routine():
   print("Thread: Started thread")
   raise Exception("Thread: I raised an exception, which will terminate the main thread and produce an exit code of 1.")
+```
 
 Make sure you put it inside the thread - for example, this won't work:
 
