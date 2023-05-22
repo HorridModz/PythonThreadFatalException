@@ -86,7 +86,7 @@ def my_thread_routine():
   raise Exception("Thread: I raised an exception, which will terminate the main thread and produce an exit code of 1.")
 ```
 
-Make sure you put it inside the thread - for example, this won't work:
+Make sure you put it **inside** the thread - for example, this won't work:
 
 ```py
 thread = Thread(target=my_thread_routine)
