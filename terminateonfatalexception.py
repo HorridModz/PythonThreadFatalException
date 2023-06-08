@@ -71,5 +71,5 @@ class terminate_on_fatal_exception():
         if threading.get_ident() != threading.main_thread().ident:
             error_traceback += f"Exception in thread {threading.current_thread().name}:\n"
         error_traceback += traceback.format_exc()
-        sys.stderr.write(error_traceback)
+        print(error_traceback, file=sys.stderr)
         os._exit(1)
